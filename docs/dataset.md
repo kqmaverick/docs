@@ -30,17 +30,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
-  <TabItem value="apple" label="Apple" default>
-    This is an apple 🍎
-  </TabItem>
-  <TabItem value="orange" label="Orange">
-    This is an orange 🍊
-  </TabItem>
-  <TabItem value="banana" label="Banana">
-    This is a banana 🍌
-  </TabItem>
-</Tabs>
-
+  <TabItem value="bluefin" label="Bluefin" default>
 Create an SMB Share as shown below. All settings should remain default except for `Auxiliary Parameters`.
 
 :::warning ACL
@@ -55,6 +45,11 @@ After saving SMB settings TrueNAS Scale will launch an `Edit ACL` screen. Do **N
 force user=apps
 force group=apps
 ```
+  </TabItem>
+  <TabItem value="cobia" label="Cobia">
+    This is an orange 🍊
+  </TabItem>
+</Tabs>
 
 ## NFS Share
 
