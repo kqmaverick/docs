@@ -124,6 +124,70 @@ Hit enter and you should see the following output.
 ![img](./img/smb-13.png)
 
   </TabItem>
+  <TabItem value="cobia-script" label="Cobia (Script Method)">
+Create an SMB Share as shown below. All settings should remain default.
+
+:::warning ACL
+
+After saving SMB settings TrueNAS Scale will ask if you want to `Configure ACL`. Do **NOT** as this will overwrite the previously configured permissions. You can select `Cancel`, SMB Share will still be configured.
+
+:::
+
+![share-smb](./img/share-smb-cobia.png)
+
+#### Setup SMB Share Auxiliary Parameters
+
+With the release of Cobia the `Auxiliary Parameters` has been removed from the WebUI. The below will guide you through the use of script to add the correct parameters.
+
+Generate an API key, access http://IP:PORT/ui/apikeys/ (ie. http://192.168.1.4:81/ui/apikeys/)
+
+Select `Add`
+
+![api-keys-add](./img/api-keys-add.png)
+
+Enter a name and click `Save`
+
+![api-keys-smb](./img/api-keys-smb.png)
+
+Save a copy of the API key for use later
+
+![api-keys-copy](./img/api-keys-copy.png)
+
+Download the script file to your TrueNAS server using the system shell.
+
+```bash
+wget https://raw.githubusercontent.com/xstar97/scale-scripts/main/scripts/smbAuxUpdater.sh
+```
+
+Edit the script using a text editor like nano.
+
+```bash
+nano smbAuxUpdater.sh
+```
+
+Modify the following variables:
+- `BASE_URL` make sure the port is set to whatever your TrueNAS uses
+- `AUTH_VALUE` set this to the API key you previously created
+- `SMB_USERS` set this to the user(s) you want to have SMB access
+
+![script-parms](./img/script-parms.png)
+
+Make the script executable
+
+```bash
+chmod +x smbAuxUpdater.sh
+```
+
+Run the script
+
+```bash
+./smbAuxUpdater.sh
+```
+
+The script will ask if you want to update the SMB auxiliary parameters for each share. Answer yes or no as needed.
+
+![script-question](./img/script-question.png)
+  </TabItem>
 </Tabs>
 
 ## NFS Share
@@ -145,4 +209,3 @@ NFS should **NOT** be used for `App Config Storage`. This should be left on the 
 Configure `Additional App Storage` as shown below. In some applications data storage is part of the application configuration, in those cases you would still configure NFS but not need to setup a `Mount Path`.
 
 ![app-storage](./img/app-storage.png)
-
