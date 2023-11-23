@@ -139,12 +139,6 @@ After saving SMB settings TrueNAS Scale will ask if you want to `Configure ACL`.
 
 With the release of Cobia the `Auxiliary Parameters` has been removed from the WebUI. The below will guide you through the use of script to add the correct parameters.
 
-Download the script file to your TrueNAS server using the system shell.
-
-```bash
-wget https://raw.githubusercontent.com/xstar97/scale-scripts/main/scripts/smbAuxUpdater.sh
-```
-
 Generate an API key, access http://IP:PORT/ui/apikeys/ (ie. http://192.168.1.4:81/ui/apikeys/)
 
 Select `Add`
@@ -158,6 +152,12 @@ Enter a name and click `Save`
 Save a copy of the API key for use later
 
 ![api-keys-copy](./img/api-keys-copy.png)
+
+Download the script file to your TrueNAS server using the system shell.
+
+```bash
+wget https://raw.githubusercontent.com/xstar97/scale-scripts/main/scripts/smbAuxUpdater.sh
+```
 
 Edit the script using a text editor like nano.
 
