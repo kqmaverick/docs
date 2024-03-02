@@ -11,4 +11,4 @@ Notes about the proper setup of PeaNUT.
 
 ## Homepage Widget
 
-PeaNUT is supports Homepage integration and has a Widget. After enabling Homepage and the Widget enter the name of the UPS in the `API-key (key)` block. On TrueNAS Scale this is set in the UPS Service as `Identifier`.
+- PeaNUT supports Homepage integration and has a Widget. After enabling Homepage and the Widget enter the name of the UPS in the `API-key (key)` block. On TrueNAS Scale this is set in the UPS Service as `Identifier`.
