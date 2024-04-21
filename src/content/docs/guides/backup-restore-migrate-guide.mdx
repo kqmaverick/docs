@@ -32,7 +32,7 @@ import { Steps } from '@astrojs/starlight/components';
    bash tcdbinfo.sh
    ```
 
-![tcdbinfo-output](./img/tcdbinfo-output.png)
+   ![tcdbinfo-output](./img/tcdbinfo-output.png)
 
 2. Add Nextcloud to PGAdmin using the connection info from previous step.
    ![pgadmin-connection1](./img/pgadmin-connection1.png)
@@ -122,17 +122,17 @@ Wait for Nextcloud to fully deploy before proceeding.
 6. Configure Options as shown below and click restore.
    ![pgadmin-restore4](./img/pgadmin-restore4.png)
 
-:::caution[PGAdmin Error]
+   :::caution[PGAdmin Error]
 
-PGAdmin may display an error during the restore process. This is known to occur and may be ignored.
+   PGAdmin may display an error during the restore process. This is known to occur and may be ignored.
 
-:::
+   :::
 
 7. Start the main pod of Nextcloud.
 
-```bash title="Start Main Pod of Nextcloud"
-k3s kubectl scale deploy nextcloud -n ix-nextcloud --replicas=1
-```
+   ```bash title="Start Main Pod of Nextcloud"
+   k3s kubectl scale deploy nextcloud -n ix-nextcloud --replicas=1
+   ```
 
 </Steps>
 
@@ -150,29 +150,29 @@ Wait for Nextcloud to fully deploy before proceeding.
    ![nextcloud-cli](./img/nextcloud-cli.png)
 2. Run the following commands in the Nextcloud shell.
 
-```bash title="Run Upgrade"
-occ upgrade
-```
+   ```bash title="Run Upgrade"
+   occ upgrade
+   ```
 
-```bash title="Turn On Maintenance Mode"
-occ maintenance:mode --on
-```
+   ```bash title="Turn On Maintenance Mode"
+   occ maintenance:mode --on
+   ```
 
-```bash title="Run Repair"
-occ maintenance:repair
-```
+   ```bash title="Run Repair"
+   occ maintenance:repair
+   ```
 
-```bash title="Turn Off Maintenance Mode"
-occ maintenance:mode --off
-```
+   ```bash title="Turn Off Maintenance Mode"
+   occ maintenance:mode --off
+   ```
 
-```bash title="title="Add Missing Database Indices"
-occ db:add-missing-indices
-```
+   ```bash title="title="Add Missing Database Indices"
+   occ db:add-missing-indices
+   ```
 
-```bash title="Scan All User Files"
-occ files:scan --all
-```
+   ```bash title="Scan All User Files"
+   occ files:scan --all
+   ```
 
 </Steps>
 
