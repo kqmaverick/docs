@@ -5,7 +5,7 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'KQMaverck Docs',
+			title: 'KQMaverick Docs',
 			social: {
 				github: 'https://github.com/kqmaverick',
 			},
