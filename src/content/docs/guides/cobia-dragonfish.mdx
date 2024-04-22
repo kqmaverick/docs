@@ -46,9 +46,9 @@ We now need to clean up some old Cobia objects. Enter the following command in t
 
 _Replace `TANK` in the command with your pool name that contains the ix-applications dataset_
 
-```shell title="Remove Old OpenEBS"
-rm /mnt/TANK/ix-applications/k3s/server/manifests/zfs-operator.yaml && sudo k3s kubectl delete -f https://truecharts.org/openebsrem.yaml && sudo k3s kubectl delete storageClass openebs-zfspv-default
-```
+    ```shell title="Remove Old OpenEBS"
+    rm /mnt/TANK/ix-applications/k3s/server/manifests/zfs-operator.yaml && sudo k3s kubectl delete -f https://truecharts.org/openebsrem.yaml && sudo k3s kubectl delete storageClass openebs-zfspv-default
+    ```
 
 3. Create Dataset for PVCs and Install OpenEBS
 
@@ -65,9 +65,9 @@ https://github.com/Heavybullets8/TT-Migration
 
 Running the below command in the TrueNAS SCALE shell will (1) clone/download Heavy's TT-Migration repo to your SCALE system, (2) enter the path for it and (3) execute the migration script as root:
 
-```shell title="Install and Run TT-Migration"
-git clone https://github.com/Heavybullets8/TT-Migration.git && cd TT-Migration && sudo bash migrate.sh
-```
+    ```shell title="Install and Run TT-Migration"
+    git clone https://github.com/Heavybullets8/TT-Migration.git && cd TT-Migration && sudo bash migrate.sh
+    ```
 
 If you want to see the steps that it performs, or if you'd like to perform the steps yourself manually using the guide, follow the instructions [here](https://github.com/Heavybullets8/TT-Migration?tab=readme-ov-file#guide).
 
