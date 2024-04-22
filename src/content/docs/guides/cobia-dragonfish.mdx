@@ -15,13 +15,13 @@ Please read this migration guide carefully _before_ upgrading to DragonFish.
 
 iX-Systems no longer maintains or supports any form of PVC-based storage for apps. This includes their own "legacy" storage backend. This means that when using the following SCALE features, you will lose some functionality:
 
-<ol>
+<ul>
     <li>**SCALE Backup and Restore (unreleased feature available through HeavyScript)** - Will no longer back up PVC storage at all.</li>
 
     <li>**SCALE App Rollback** - You will no longer be able to roll back any PVC storage.</li>
 
     <li>**SCALE App Pool Migration** - You will no longer be able to migrate PVC storage using the pool migration feature in SCALE.</li>
-</ol>
+</ul>
 
 The above issues exist both for our new in-house TrueCharts OpenEBS storage solution **and** for users using already installed apps that use the legacy storage backend from iX-Systems.
 
