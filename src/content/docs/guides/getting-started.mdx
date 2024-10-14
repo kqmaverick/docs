@@ -15,7 +15,6 @@ All code and docs are considered Pre-Beta drafts
 import { Steps } from "@astrojs/starlight/components";
 
 <Steps>
-
 1. (Optional) Create a Git Repository to store your config
 
 With our new ClusterTool, we started for fully embrace Infrastructure-as-Code.
@@ -24,10 +23,6 @@ This means all configs can, safely, be saved towards a (public *or* private) GIT
 For this reason we also include integrated SOPS Encryption, Decryption and an automated encryption-check.
 
 All things considered, we would advise users to prepare their repository beforehand by following:
-
-        - [Create a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/quickstart-for-repositories)
-        - [Setup GIT](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git)
-        - [Cloning a Repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
 
 Besides these basic getting-started steps, we would also advise users to have already followed [this](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic). We also would advise users to save this token somewhere secure until needed.
 
@@ -41,9 +36,6 @@ From this step forward, we're going to assume a github repo. If you're starting 
 3. Downloading ClusterTool
 
 ClusterTool is available on [GitHub](https://github.com/truecharts/clustertool-public/tags). It is highly recommended you add clustertool to your systems PATH so that it can be used anywhere.
-
-        - [Windows Guide](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/)
-        - [Linux Guide](https://opensource.com/article/17/6/set-path-linux)
 
 4. Initialisation
 
@@ -69,20 +61,12 @@ It's **absolutely crucial** you save this file somewhere safe and preferably hav
 
 Thanks to our use of TalHelper, a streamlined Talos configuration tool, there are only two files that contain all our configuration for Talos:
 
-        - `clusters/main/clusterenv.yaml` 
-        - `clusters/main/talos/talconfig.yaml`
-
 7. ClusterEnv
 
 This file that contains the most important settings, its content also gets saved on the cluster for use with FluxCD and its settings get referenced in multiple places.
 You're free to add settings as you please, or as you need them. Feel free to adapt them if needed!
 
 Primary settings that **need** to be adapted:
-
-        - `MASTER1IP`: The static-DHCP IP that was set during the TalosOS network configuration
-        - `VIP`: Contains the shared IP for all master-nodes
-        - `METALLB_RANGE`: Contains the range MetalLB will allow IPs to be distributed in *(cannot overlap with any nodeIP or VIP, nor should it overlap with local dhcp range)*
-        - `DASHBOARD_IP`: The IP, within the MetalLB range, that the kubernetes monitoring/management dashboard will be made available on *(should be a free ip adres on your network, not overlapping with dhcp adresses)*
 
 8. (optional) Enabling FluxCD Bootstrapping
 
@@ -100,10 +84,6 @@ We would advise to adapt the nodes so they fit your cluster design. By default w
 For more information on talconfig.yaml and talhelper, please see [here](https://budimanjojo.github.io/talhelper/latest/)
 
 10. Generating ClusterConfig and updating files from Config
-
-        :::caution[Compatibility]
-        While our genconfig *can* generate a clusterconfig, that can get applied 'out of the box' through TalosCTL. By default, our `talconfig.yaml` is completely designed around our ClusterTool expected defaults. Hence these cannot be expected to work directly through TalosCTL.
-        :::
 
 Clusterconfig are the files Talos itself sends to the nodes and uses to connect to the nodes. To create these files, which are not saved to git by default, from the config you created earlier, please run:
 
@@ -153,10 +133,6 @@ We **highly** advise to always run `checkcrypt` before sending data to git.
 
 To send the data to git run:
 
-        - `git add *`
-        - `git commit -a -m "some description"`
-        - `git push`
-
 12. (optional) Setting Up Github SSH access for FluxCD
 
 If you want to use FluxCD, you need to add the SSH public key defined in `./ssh-public-key.txt`, to your Github Account.
@@ -190,5 +166,4 @@ In a terminal, run:
 or, on Windows:
 
 `ClusterTool.exe apply`
-
 </Steps>
