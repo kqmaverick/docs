@@ -15,13 +15,16 @@ For PVC storage to function correctly, it's important to already have a storageC
 To setup persistence, add the following section to your values.yaml manually and adapt as needed:
 
 ```yaml
-// PVC
+// values.yaml
 persistence:
   config:
     enabled: true
     type: pvc
     mountPath: /mystorage
-// NFS
+```
+
+```yaml   
+// values.yaml
 persistence:
   config:
     enabled: true
